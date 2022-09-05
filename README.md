@@ -13,9 +13,9 @@ Welcome to my first ever backend project using <b>Software Architectural Patter<
 
 ### APIs
 
-Base URL is /api/v1/user
-
 <pre>
+/api/v1/user    Base URL
+
 1. /all         gives all users
 2. /random      gives a random user
 3. /save        saves a new user
