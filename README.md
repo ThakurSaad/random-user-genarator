@@ -10,3 +10,16 @@ Welcome to my first ever backend project using <b>Software Architectural Patter<
 - express
 - cors
 - axios
+
+### APIs
+
+Base URL is /api/v1/user
+
+<pre>
+1. /all         gives all users
+2. /random      gives a random user
+3. /save        saves a new user
+4.
+5.
+6.
+</pre>
