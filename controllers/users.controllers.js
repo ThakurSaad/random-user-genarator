@@ -22,7 +22,7 @@ module.exports.saveAUser = (req, res) => {
 
 module.exports.updateAUser = (req, res) => {
   const newInfo = req.body;
-  const userId = req.params.id;
+  const userId = req.query.id;
 
   const foundUser = users.find(
     (user) => parseInt(user.id) === parseInt(userId)

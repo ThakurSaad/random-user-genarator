@@ -8,7 +8,7 @@ router.route("/random").get(usersController.getRandomUser);
 
 router.route("/save").post(usersController.saveAUser);
 
-router.route("/update/:id").patch(usersController.updateAUser);
+router.route("/update").patch(usersController.updateAUser);
 
 router.route("/delete").delete(usersController.deleteAUser);
 
