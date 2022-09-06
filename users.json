@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "gender": "Female",
     "name": "Quintan Kaufman",
     "contact": "(276) 688-1881",
@@ -8,7 +8,7 @@
     "photoUrl": "https://placeimg.com/192/192/people"
   },
   {
-    "id": 2,
+    "id": "2",
     "gender": "Male",
     "name": "Reuben Moran",
     "contact": "(827) 773-2816",
@@ -16,27 +16,11 @@
     "photoUrl": "https://placeimg.com/192/192/people"
   },
   {
-    "id": 3,
+    "id": "3",
     "gender": "Female",
     "name": "Shushan Page",
     "contact": "(188) 419-9693",
     "address": "Ap 18-5635 Elemental Road",
-    "photoUrl": "https://placeimg.com/192/192/people"
-  },
-  {
-    "id": 15,
-    "gender": "Female",
-    "name": "done",
-    "contact": "1-372-689-8026",
-    "address": "Ap 845-9406 Critique Street",
-    "photoUrl": "https://placeimg.com/192/192/people"
-  },
-  {
-    "id": "12",
-    "gender": "Female",
-    "name": "hello",
-    "contact": "1-372-689-8026",
-    "address": "Ap 845-9406 Critique Street",
     "photoUrl": "https://placeimg.com/192/192/people"
   }
 ]

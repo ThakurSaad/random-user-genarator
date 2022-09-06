@@ -10,4 +10,6 @@ router.route("/save").post(usersController.saveAUser);
 
 router.route("/update/:id").patch(usersController.updateAUser);
 
+router.route("/delete").delete(usersController.deleteAUser);
+
 module.exports = router;

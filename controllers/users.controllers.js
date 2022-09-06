@@ -55,6 +55,22 @@ module.exports.updateAUser = (req, res) => {
   }
 };
 
+module.exports.deleteAUser = (req, res) => {
+  const userId = req.query.id;
+
+  const foundUserIndex = users.findIndex(
+    (user) => parseInt(user.id) == parseInt(userId)
+  );
+
+  if (foundUserIndex !== -1) {
+    users.splice(foundUserIndex, 1);
+    fs.writeFileSync("users.json", JSON.stringify(users));
+    res.status(200).send("success");
+  } else {
+    res.send("no users found");
+  }
+};
+
 // module.exports.saveAUser = (req, res) => {
 //   const user = req.body;
 //   console.log(user);
