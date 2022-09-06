@@ -20,6 +20,41 @@ module.exports.saveAUser = (req, res) => {
   res.status(200).send("success");
 };
 
+module.exports.updateAUser = (req, res) => {
+  const newInfo = req.body;
+  const userId = req.params.id;
+
+  const foundUser = users.find(
+    (user) => parseInt(user.id) === parseInt(userId)
+  );
+
+  if (!foundUser) {
+    res.send("no user found");
+  } else {
+    if (newInfo.id) {
+      foundUser.id = newInfo.id;
+    }
+    if (newInfo.gender) {
+      foundUser.gender = newInfo.gender;
+    }
+    if (newInfo.name) {
+      foundUser.name = newInfo.name;
+    }
+    if (newInfo.contact) {
+      foundUser.contact = newInfo.contact;
+    }
+    if (newInfo.address) {
+      foundUser.address = newInfo.address;
+    }
+    if (newInfo.photoUrl) {
+      foundUser.photoUrl = newInfo.photoUrl;
+    }
+
+    fs.writeFileSync("users.json", JSON.stringify(users));
+    res.status(200).send("success");
+  }
+};
+
 // module.exports.saveAUser = (req, res) => {
 //   const user = req.body;
 //   console.log(user);

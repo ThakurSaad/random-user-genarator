@@ -19,7 +19,7 @@ Welcome to my first ever backend project using <b>Software Architectural Patter<
 1. /all         gives all users
 2. /random      gives a random user
 3. /save        saves a new user
-4.
+4. /update/:id  updates the user with the id
 5.
 6.
 </pre>

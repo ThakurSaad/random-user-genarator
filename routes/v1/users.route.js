@@ -8,4 +8,6 @@ router.route("/random").get(usersController.getRandomUser);
 
 router.route("/save").post(usersController.saveAUser);
 
+router.route("/update/:id").patch(usersController.updateAUser);
+
 module.exports = router;
