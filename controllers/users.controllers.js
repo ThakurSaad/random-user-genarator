@@ -88,6 +88,27 @@ module.exports.updateAUser = (req, res) => {
   }
 };
 
+module.exports.bulkUpdate = (req, res) => {
+  const userIDs = req.body.ids;
+  const users = getUsers();
+
+  for (let i = 0; i < userIDs.length; i++) {
+    const userID = userIDs[i];
+
+    const foundUser = users.find(
+      (user) => parseInt(user.id) === parseInt(userID)
+    );
+
+    if (!foundUser) {
+      return res.send("Only provide the IDs that exists in the json file");
+    }
+
+    console.log(userID, foundUser);
+  }
+
+  res.send("found");
+};
+
 module.exports.deleteAUser = (req, res) => {
   const userId = req.query.id;
   const users = getUsers();

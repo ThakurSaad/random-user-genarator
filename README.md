@@ -16,11 +16,11 @@ Welcome to my first ever backend project using <b>Software Architectural Patter<
 <pre>
 /api/v1/user    Base URL
 
-1. /all         gives all users
-2. /random      gives a random user
-3. /save        saves a new user
-4. /update/:id  updates the user with the id
-5.
+1. /all               gives all users and limit number of users by using query
+2. /random            gives a random user
+3. /save              saves a new user
+4. /update?query      updates the user with the id
+5. /delete?query      deletes a user
 6.
 </pre>
 

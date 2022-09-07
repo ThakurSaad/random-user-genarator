@@ -10,6 +10,8 @@ router.route("/save").post(usersController.saveAUser);
 
 router.route("/update").patch(usersController.updateAUser);
 
+router.route("/bulk-update").patch(usersController.bulkUpdate);
+
 router.route("/delete").delete(usersController.deleteAUser);
 
 module.exports = router;
