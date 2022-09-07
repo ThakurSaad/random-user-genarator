@@ -23,3 +23,52 @@ Welcome to my first ever backend project using <b>Software Architectural Patter<
 5.
 6.
 </pre>
+
+### Problems
+
+1. When hit on the /random route, with and without query, first time data shows perfectly. If hit multiple times with and without query the expected result is not shown. Query is used for limiting the number of users. <br>
+   This problem arises when I read the users file once at the starting of the users.controllers.js file. <br>
+
+<b>Problem code</b>
+
+```
+const data = fs.readFileSync("users.json");
+const users = JSON.parse(data);
+
+module.exports.getAllUser = (req, res) => {
+if (req.query.num === undefined) {
+res.send(users);
+} else {
+const usersToBeShown = req.query.num;
+const result = users.splice(0, usersToBeShown);
+res.send(result);
+}
+};
+```
+
+But if I read the file every time using getUser() function the problem is solved. <br>
+I solved it on my own. But can not understand why it's happening.
+
+<b>Solved code</b>
+
+```
+function getUsers() {
+  const data = fs.readFileSync("users.json");
+  const users = JSON.parse(data);
+  return users;
+}
+
+module.exports.getAllUser = (req, res) => {
+  if (req.query.num === undefined) {
+    const users = getUsers();
+    console.log("hit", users);
+    res.send(users);
+  } else {
+    const users = getUsers();
+    const usersToBeShown = req.query.num;
+    const result = users.splice(0, usersToBeShown);
+    console.log("hit with query");
+    res.send(result);
+  }
+};
+```

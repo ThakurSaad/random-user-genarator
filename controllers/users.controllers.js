@@ -1,21 +1,35 @@
 const fs = require("fs");
 
 // reading json file
-const data = fs.readFileSync("users.json");
-const users = JSON.parse(data);
+function getUsers() {
+  const data = fs.readFileSync("users.json");
+  const users = JSON.parse(data);
+  return users;
+}
 
 module.exports.getAllUser = (req, res) => {
-  res.send(users);
+  if (req.query.num === undefined) {
+    const users = getUsers();
+    console.log("hit", users);
+    res.send(users);
+  } else {
+    const users = getUsers();
+    const usersToBeShown = req.query.num;
+    const result = users.splice(0, usersToBeShown);
+    console.log("hit with query");
+    res.send(result);
+  }
 };
 
 module.exports.getRandomUser = (req, res) => {
+  const users = getUsers();
   const randomUser = users[Math.floor(Math.random() * users.length)];
   res.send(randomUser);
 };
 
 module.exports.saveAUser = (req, res) => {
   const user = req.body;
-  
+
   if (
     !user.id ||
     !user.gender ||
@@ -26,6 +40,7 @@ module.exports.saveAUser = (req, res) => {
   ) {
     res.send("Missing properties or values");
   } else {
+    const users = getUsers();
     users.push(user);
     fs.writeFileSync("users.json", JSON.stringify(users));
     res.status(200).send("success");
@@ -35,6 +50,7 @@ module.exports.saveAUser = (req, res) => {
 module.exports.updateAUser = (req, res) => {
   const newInfo = req.body;
   const userId = req.query.id;
+  const users = getUsers();
 
   const foundUser = users.find(
     (user) => parseInt(user.id) === parseInt(userId)
@@ -69,6 +85,7 @@ module.exports.updateAUser = (req, res) => {
 
 module.exports.deleteAUser = (req, res) => {
   const userId = req.query.id;
+  const users = getUsers();
 
   const foundUserIndex = users.findIndex(
     (user) => parseInt(user.id) == parseInt(userId)
@@ -82,18 +99,3 @@ module.exports.deleteAUser = (req, res) => {
     res.send("no users found");
   }
 };
-
-// module.exports.saveAUser = (req, res) => {
-//   const user = req.body;
-//   console.log(user);
-//   users.find((previousUser) => {
-//     if (previousUser.id == user.id) {
-//       console.log("print");
-//       res.send("match found. Please provide a different ID");
-//     } else {
-//       users.push(user);
-//       const withNewUser = fs.writeFileSync("users.json", JSON.stringify(users));
-//       res.send(withNewUser.length);
-//     }
-//   });
-// };
