@@ -15,9 +15,21 @@ module.exports.getRandomUser = (req, res) => {
 
 module.exports.saveAUser = (req, res) => {
   const user = req.body;
-  users.push(user);
-  fs.writeFileSync("users.json", JSON.stringify(users));
-  res.status(200).send("success");
+  
+  if (
+    !user.id ||
+    !user.gender ||
+    !user.name ||
+    !user.contact ||
+    !user.address ||
+    !user.photoUrl
+  ) {
+    res.send("Missing properties or values");
+  } else {
+    users.push(user);
+    fs.writeFileSync("users.json", JSON.stringify(users));
+    res.status(200).send("success");
+  }
 };
 
 module.exports.updateAUser = (req, res) => {
