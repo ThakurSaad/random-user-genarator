@@ -91,6 +91,11 @@ module.exports.updateAUser = (req, res) => {
 module.exports.deleteAUser = (req, res) => {
   const userId = req.query.id;
   const users = getUsers();
+  const parsedId = JSON.parse(req.query.id);
+
+  if (typeof parsedId == "object") {
+    return res.send("Please provide a number in the query");
+  }
 
   const foundUserIndex = users.findIndex(
     (user) => parseInt(user.id) == parseInt(userId)
