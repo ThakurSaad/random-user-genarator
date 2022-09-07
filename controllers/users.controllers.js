@@ -51,6 +51,11 @@ module.exports.updateAUser = (req, res) => {
   const newInfo = req.body;
   const userId = req.query.id;
   const users = getUsers();
+  const parsedId = JSON.parse(req.query.id);
+
+  if (typeof parsedId == "object") {
+    return res.send("Please provide a number in the query");
+  }
 
   const foundUser = users.find(
     (user) => parseInt(user.id) === parseInt(userId)
