@@ -2,7 +2,7 @@ const fs = require("fs");
 
 // reading json file
 function getUsers() {
-  const data = fs.readFileSync("users.json");
+  const data = fs.readFileSync(__dirname + "../users.json");
   const users = JSON.parse(data);
   return users;
 }
