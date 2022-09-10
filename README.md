@@ -2,7 +2,7 @@
 
 Welcome to my first ever backend-only project using <b>Software Architectural Pattern</b>. Here I used MVC (Module View Controller). The messy backend code I wrote in the past has become so much pretty that its like a dream. I love <b>MVC</b>. Kudos to [Trygve Mikkjel Heyerdahl Reenskaug](<https://en.wikipedia.org/wiki/Trygve_Reenskaug#:~:text=Trygve%20Mikkjel%20Heyerdahl%20Reenskaug%20(born,Xerox%20Palo%20Alto%20Research%20Center)>) for inventing such an amazing pattern.
 
-[Live Vercel Server](https://random-user-genarator.vercel.app/)
+[Live Heroku Server](https://floating-fortress-65518.herokuapp.com/)
 
 ### Technologies
 
@@ -10,22 +10,29 @@ Welcome to my first ever backend-only project using <b>Software Architectural Pa
 - express
 - cors
 - axios
-- vercel
+- heroku
 
 ### APIs
 
 <pre>
-https://random-user-genarator.vercel.app/api/v1/user    Base URL
+https://floating-fortress-65518.herokuapp.com/api/v1/user   Base URL
 
 1. /all               gives all users and limit number of users by using query
-  - https://random-user-genarator.vercel.app/api/v1/user/all
-  - https://random-user-genarator.vercel.app/api/v1/user/all?num=4
+  - https://floating-fortress-65518.herokuapp.com/api/v1/user/all
+  - https://floating-fortress-65518.herokuapp.com/api/v1/user/all?num=5
+  
 2. /random            gives a random user
-  -https://random-user-genarator.vercel.app/api/v1/user/random
+  - https://floating-fortress-65518.herokuapp.com/api/v1/user/random
+
 3. /save              saves a new user
-  -https://random-user-genarator.vercel.app/api/v1/user/save
+  - https://floating-fortress-65518.herokuapp.com/api/v1/user/save
+
 4. /update?query      updates the user with the id
+  - https://floating-fortress-65518.herokuapp.com/api/v1/user/update?id=4
+
 5. /delete?query      deletes a user
+  - https://floating-fortress-65518.herokuapp.com/api/v1/user/delete?id=3
+
 6. /bulk-update       updates a number of users
 </pre>
 
@@ -77,4 +84,3 @@ module.exports.getAllUser = (req, res) => {
   }
 };
 ```
-<!-- "build": "webpack --config=Scripts/config/webpack.prod.js" -->
