@@ -2,7 +2,8 @@
 
 Welcome to my first ever backend-only project using <b>Software Architectural Pattern</b>. Here I used MVC (Module View Controller). The messy backend code I wrote in the past has become so much pretty that its like a dream. I love <b>MVC</b>. Kudos to [Trygve Mikkjel Heyerdahl Reenskaug](<https://en.wikipedia.org/wiki/Trygve_Reenskaug#:~:text=Trygve%20Mikkjel%20Heyerdahl%20Reenskaug%20(born,Xerox%20Palo%20Alto%20Research%20Center)>) for inventing such an amazing pattern.
 
-[Live Heroku Server](https://floating-fortress-65518.herokuapp.com/)
+[Live Heroku Server](https://floating-fortress-65518.herokuapp.com/) <br>
+[Live Vercel Server](https://random-user-genarator.vercel.app/) (on development)
 
 ### Technologies
 
