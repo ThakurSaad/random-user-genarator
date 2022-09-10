@@ -50,6 +50,7 @@ module.exports.saveAUser = (req, res) => {
 module.exports.updateAUser = (req, res) => {
   const newInfo = req.body;
   const userId = req.query.id;
+  console.log(userId);
   const users = getUsers();
   const parsedId = JSON.parse(req.query.id);
 
@@ -83,7 +84,7 @@ module.exports.updateAUser = (req, res) => {
       foundUser.photoUrl = newInfo.photoUrl;
     }
 
-    fs.writeFileSync("users.json", JSON.stringify(users));
+    fs.writeFileSync(__dirname + "/../users.json", JSON.stringify(users));
     res.status(200).send("success");
   }
 };
